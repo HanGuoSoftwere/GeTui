@@ -1,4 +1,6 @@
 <?php
+namespace HanGuoSoft\GeTui;
+
 class IGtTransmissionTemplate extends IGtBaseTemplate {
 
 	var $transmissionType;

@@ -31,16 +31,16 @@ class GeTuiPush
      */
     public function pushMessageForAndroid($cid, $title, $content, $extend){
         try {
-            $igt = new \IGeTui($this->HOST,  $this->APPKEY,  $this->MASTERSECRET);
+            $igt = new IGeTui($this->HOST,  $this->APPKEY,  $this->MASTERSECRET);
             //消息模版：
             $template = $this->IGtNotyPopLoadTemplate($title, $content, $extend);
 
-            $message = new \IGtSingleMessage();
+            $message = new IGtSingleMessage();
             $message->set_isOffline(true);//是否离线
             $message->set_offlineExpireTime(3600*12*24);//离线时间
             $message->set_data($template);//设置推送消息类型
             //接收方
-            $target = new \IGtTarget();
+            $target = new IGtTarget();
             $target->set_appId( $this->APPID);
             $target->set_clientId($cid);
 
@@ -67,9 +67,9 @@ class GeTuiPush
      */
     public function pushMessageForIOS($token, $title, $content, $extend)
     {
-        $igt = new \IGeTui($this->HOST, $this->APPKEY,$this-> MASTERSECRET);
+        $igt = new IGeTui($this->HOST, $this->APPKEY,$this-> MASTERSECRET);
         $template = $this->IGtTransmissionTemplate($title, $content, $extend);
-        $message = new \IGtSingleMessage();
+        $message = new IGtSingleMessage();
         $message->set_isOffline(true);//是否离线
         $message->set_offlineExpireTime(3600*12*1000);//离线时间
         $message->set_data($template);//设置推送消息类型
@@ -90,8 +90,7 @@ class GeTuiPush
      * @return \IGtNotificationTemplate
      */
     function IGtNotyPopLoadTemplate($title, $content, $extend){
-
-        $template =  new \IGtNotificationTemplate();
+        $template =  new IGtNotificationTemplate();
         $template->set_appId($this->APPID);                      //应用appid
         $template->set_appkey($this->APPKEY);                    //应用appkey
         $template->set_transmissionType(1);               //透传消息类型
@@ -118,26 +117,24 @@ class GeTuiPush
      * @throws \Exception
      */
     function IGtTransmissionTemplate($title,$content, $extend = []){
-
-        $template =  new \IGtTransmissionTemplate();
+        $template =  new IGtTransmissionTemplate();
         $template->set_appId(APPID);//应用appid
         $template->set_appkey(APPKEY);//应用appkey
         $template->set_transmissionType(1);//透传消息类型
         $template->set_transmissionContent($extend);//透传内容
 
-        $notify =  new \IGtNotify();
+        $notify =  new IGtNotify();
         $notify->set_title($title);                     //通知栏标题
         $notify->set_content($content);
         $notify->set_payload(json_encode($extend));
         $template->set3rdNotifyInfo($notify);
 
         //       APN高级推送
-        $apn = new \IGtAPNPayload();
+        $apn = new IGtAPNPayload();
         foreach ($extend as $k => $v){
             $apn->add_customMsg($k, $v);
         }
-
-        $alertmsg = new \DictionaryAlertMsg();
+        $alertmsg = new DictionaryAlertMsg();
         $alertmsg->body = $content;
         $alertmsg->actionLocKey = "ActionLockey";
         $alertmsg->locKey = "LocKey";

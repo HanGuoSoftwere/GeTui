@@ -1,5 +1,5 @@
- <?php
-
+<?php
+namespace HanGuoSoft\GeTui;
 /**
  * Created by PhpStorm.
  * User: zqzhao5

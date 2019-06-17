@@ -1,4 +1,5 @@
 <?php
+namespace HanGuoSoft\GeTui;
 /**
  * Created by PhpStorm.
  * User: Administrator
@@ -117,7 +118,7 @@ class HttpManager
             $result = json_decode($resp, true);
             return $result;
         } catch (Exception $e) {
-            throw new RequestException($params["requestId"],"httpPost:[".$url."] [" .$data." ] [ ".$result."]:",$e);
+            throw new \RequestException($params["requestId"],"httpPost:[".$url."] [" .$data." ] [ ".$result."]:",$e);
         }
     }
 

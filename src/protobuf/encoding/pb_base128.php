@@ -1,5 +1,5 @@
 <?php
-
+namespace HanGuoSoft\GeTui;
 /**
  * Base 128 varints - decodes and encodes base128 varints to/from decimal
  * @author Nikolai Kordulla

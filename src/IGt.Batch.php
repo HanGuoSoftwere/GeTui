@@ -1,4 +1,5 @@
 <?php
+namespace HanGuoSoft\GeTui;
 /**
  * Created by PhpStorm.
  * User: Administrator

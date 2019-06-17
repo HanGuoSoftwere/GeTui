@@ -1,4 +1,5 @@
-<?php 
+<?php
+namespace HanGuoSoft\GeTui;
 
 class IGtTarget{
 	var  $appId;

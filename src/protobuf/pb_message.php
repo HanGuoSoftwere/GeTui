@@ -1,18 +1,29 @@
 <?php
+namespace HanGuoSoft\GeTui;
 /**
  * Including of all files needed to parse messages
  * @author Nikolai Kordulla
  */
-require_once(dirname(__FILE__). '/' . 'encoding/pb_base128.php');
-require_once(dirname(__FILE__). '/' . 'type/pb_scalar.php');
-require_once(dirname(__FILE__). '/' . 'type/pb_enum.php');
-require_once(dirname(__FILE__). '/' . 'type/pb_bytes.php');
-require_once(dirname(__FILE__). '/' . 'type/pb_string.php');
-require_once(dirname(__FILE__). '/' . 'type/pb_int.php');
-require_once(dirname(__FILE__). '/' . 'type/pb_bool.php');
-require_once(dirname(__FILE__). '/' . 'type/pb_signed_int.php');
-require_once(dirname(__FILE__). '/' . 'reader/pb_input_reader.php');
-require_once(dirname(__FILE__). '/' . 'reader/pb_input_string_reader.php');
+//require_once(dirname(__FILE__). '/' . 'encoding/pb_base128.php');
+use HanGuoSoft\GeTui\base128varint;
+//require_once(dirname(__FILE__). '/' . 'type/pb_scalar.php');
+use HanGuoSoft\GeTui\PBScalar;
+//require_once(dirname(__FILE__). '/' . 'type/pb_enum.php');
+use HanGuoSoft\GeTui\PBEnum;
+//require_once(dirname(__FILE__). '/' . 'type/pb_bytes.php');
+use HanGuoSoft\GeTui\PBBytes;
+//require_once(dirname(__FILE__). '/' . 'type/pb_string.php');
+use HanGuoSoft\GeTui\PBString;;
+//require_once(dirname(__FILE__). '/' . 'type/pb_int.php');
+use HanGuoSoft\GeTui\PBInt;
+//require_once(dirname(__FILE__). '/' . 'type/pb_bool.php');
+use HanGuoSoft\GeTui\PBBool;
+//require_once(dirname(__FIL__). '/' . 'type/pb_signed_int.php');
+use PBSignedInt;
+//require_once(dirname(__FILE__). '/' . 'reader/pb_input_reader.php');
+use HanGuoSoft\GeTui\PBInputReader;
+//require_once(dirname(__FILE__). '/' . 'reader/pb_input_string_reader.php');
+use HanGuoSoft\GeTui\PBInputStringReader;
 /**
  * Abstract Message class
  * @author Nikolai Kordulla
@@ -231,7 +242,8 @@ abstract class PBMessage
      */
     protected function _add_arr_value($index)
     {
-        return $this->values[$index][] = new $this->fields[$index]();
+        $class_name = 'HanGuoSoft\\GeTui\\'.$this->fields[$index];
+        return $this->values[$index][] = new $class_name();
     }
 
     /**
@@ -267,7 +279,8 @@ abstract class PBMessage
         }
         else
         {
-            $this->values[$index] = new $this->fields[$index]();
+            $class_name = 'HanGuoSoft\\GeTui\\'.$this->fields[$index];
+            $this->values[$index] = new $class_name;
             $this->values[$index]->value = $value;
         }
     }

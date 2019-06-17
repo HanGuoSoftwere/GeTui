@@ -1,4 +1,5 @@
 <?php
+namespace HanGuoSoft\GeTui;
 
 interface OtherPayload{
 

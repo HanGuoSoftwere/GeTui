@@ -1,5 +1,5 @@
 <?php
-
+namespace HanGuoSoft\GeTui;
 /**
  * Class IGtNotify
  */

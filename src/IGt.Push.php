@@ -1,4 +1,5 @@
 <?php
+namespace HanGuoSoft\GeTui;
 /**
  * VERSION 3.3.2.1
  */
@@ -163,7 +164,7 @@ Class IGeTui
             }
             return true;
         }
-        throw new Exception("appKey Or masterSecret is Auth Failed");
+        throw new \Exception("appKey Or masterSecret is Auth Failed");
     }
 
     public function close()
