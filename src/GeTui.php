@@ -26,7 +26,7 @@ class GeTuiPush
      * @param $cid   device_id
      * @param $title       标题
      * @param $content     内容
-     * @param $extend    透传   1:安装任务  2:维修任务  3开户任务  4停户任务;
+     * @param $extend    透传
      * @return \Array|string
      */
     public function pushMessageForAndroid($cid, $title, $content, $extend){
