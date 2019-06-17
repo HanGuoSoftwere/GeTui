@@ -1,0 +1,1 @@
+将vendor/hanguosoft/getui/config目录下的getui.php 文件复制到项目config目录下并配置好
