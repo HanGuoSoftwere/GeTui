@@ -16,10 +16,10 @@ class GeTuiPush
 
     public function __construct()
     {
-        $this->APPKEY =config('version.getui.appKey');
-        $this->APPID =config('version.getui.appId');
-        $this->HOST =config('version.getui.host');
-        $this->MASTERSECRET =config('version.getui.masterSecret');
+        $this->APPKEY =config('getui.getui.appKey');
+        $this->APPID =config('getui.getui.appId');
+        $this->HOST =config('getui.getui.host');
+        $this->MASTERSECRET =config('getui.getui.masterSecret');
     }
 
     /**
