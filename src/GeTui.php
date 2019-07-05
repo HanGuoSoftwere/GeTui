@@ -24,8 +24,8 @@ class GeTuiPush
 
     /**
      * @param $cid   device_id
-     * @param $title       标题
-     * @param $content     内容
+     * @param $title|string    标题
+     * @param $content|string      内容
      * @param $extend    透传
      * @return \Array|string
      */
@@ -118,8 +118,8 @@ class GeTuiPush
      */
     function IGtTransmissionTemplate($title,$content, $extend = []){
         $template =  new IGtTransmissionTemplate();
-        $template->set_appId(APPID);//应用appid
-        $template->set_appkey(APPKEY);//应用appkey
+        $template->set_appId($this->APPID);//应用appid
+        $template->set_appkey($this->APPKEY);//应用appkey
         $template->set_transmissionType(1);//透传消息类型
         $template->set_transmissionContent($extend);//透传内容
 
