@@ -149,7 +149,7 @@ Class IGeTui
         // 计算sign值
         $sign = md5($this->appkey . $timeStamp . $this->masterSecret);
         //
-        var_dump($sign);
+       // var_dump($sign);
         $params = array();
 
         $params["action"] = "connect";
@@ -716,7 +716,7 @@ Class IGeTui
         $params["appId"] = $appId;
         $params["appkey"] = $this->appkey;
         $params["taskId"] = $taskId;
-        var_dump($this->host);
+//        var_dump($this->host);
 
         return $this->httpPostJSON($this->host, $params);
 
